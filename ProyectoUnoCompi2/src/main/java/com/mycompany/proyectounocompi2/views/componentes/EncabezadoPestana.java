@@ -4,14 +4,14 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Titulo de una pestaña: nombre del archivo (con * si tiene cambios sin
- * guardar) y un boton para cerrarla.
+ * Titulo de una pestaña
  */
 public class EncabezadoPestana extends JPanel {
 

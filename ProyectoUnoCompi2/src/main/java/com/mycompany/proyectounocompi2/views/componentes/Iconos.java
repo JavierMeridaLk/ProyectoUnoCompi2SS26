@@ -1,17 +1,18 @@
 package com.mycompany.proyectounocompi2.views.componentes;
 
-import com.mycompany.proyectounocompi2.analisis.Lenguaje;
 import java.awt.Image;
 import java.net.URL;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import com.mycompany.proyectounocompi2.analisis.Lenguaje;
+
 /**
- * Iconos de cada lenguaje (src/main/resources/iconos) para el arbol del
- * proyecto y las pestañas del editor.
+ * Iconos de cada lenguaje 
  */
 public final class Iconos {
 
@@ -22,7 +23,7 @@ public final class Iconos {
     private Iconos() {
     }
 
-    // Icono del lenguaje segun la extension del archivo, si es .pig, .y o .z.
+    // Icono del lenguaje segun la extension del archivo
     public static Optional<Icon> paraArchivo(String nombre) {
         return Lenguaje.desdeArchivo(nombre).map(Iconos::paraLenguaje);
     }

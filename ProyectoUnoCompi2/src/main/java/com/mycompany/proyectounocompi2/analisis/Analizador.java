@@ -38,17 +38,23 @@ public final class Analizador {
         return analizar(Files.readString(archivo), lenguaje, nombre);
     }
 
-    public static ResultadoAnalisis analizar(String codigo, Lenguaje lenguaje, String nombreArchivo) {
-        ManejadorErrores manejador = new ManejadorErrores(nombreArchivo);
-        CharStream entrada = CharStreams.fromString(codigo, nombreArchivo);
-
-        // ---------- Lexico ----------
+    // Lexer del lenguaje, sin los mensajes de error por consola (tambien lo usa el coloreado)
+    public static Lexer crearLexer(Lenguaje lenguaje, CharStream entrada) {
         Lexer lexer = switch (lenguaje) {
             case PIG_LATIN -> new pigLatinLexer(entrada);
             case Y -> new yLexer(entrada);
             case ZETARIANO -> new ZetarianoLexer(entrada);
         };
         lexer.removeErrorListeners();
+        return lexer;
+    }
+
+    public static ResultadoAnalisis analizar(String codigo, Lenguaje lenguaje, String nombreArchivo) {
+        ManejadorErrores manejador = new ManejadorErrores(nombreArchivo);
+        CharStream entrada = CharStreams.fromString(codigo, nombreArchivo);
+
+        // ---------- Lexico ----------
+        Lexer lexer = crearLexer(lenguaje, entrada);
         lexer.addErrorListener(new EscuchaErroresLexicos(manejador));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         tokens.fill();

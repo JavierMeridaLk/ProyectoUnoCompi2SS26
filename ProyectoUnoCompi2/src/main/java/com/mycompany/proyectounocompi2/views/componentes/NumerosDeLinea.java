@@ -12,6 +12,7 @@ import java.awt.RenderingHints;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.geom.Rectangle2D;
+
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
@@ -21,9 +22,7 @@ import javax.swing.text.Element;
 import javax.swing.text.JTextComponent;
 
 /**
- * Columna con los numeros de linea de un componente de texto. Se coloca como
- * encabezado de fila (row header) del JScrollPane que contiene al texto.
- * La linea donde esta el cursor se resalta.
+ * Columna con los numeros de linea de un componente de texto. 
  */
 public class NumerosDeLinea extends JComponent {
 
@@ -73,7 +72,6 @@ public class NumerosDeLinea extends JComponent {
         });
     }
 
-    // Se llama despues de que la vista del texto se actualiza.
     private void actualizar() {
         SwingUtilities.invokeLater(() -> {
             revalidate();
@@ -124,7 +122,7 @@ public class NumerosDeLinea extends JComponent {
                 int y = (int) (posicion.getY() + posicion.getHeight()) - metricas.getDescent();
                 g2.drawString(numero, x, y);
             } catch (BadLocationException e) {
-                // la linea ya no existe (el documento cambio); se repinta despues
+            
             }
         }
     }

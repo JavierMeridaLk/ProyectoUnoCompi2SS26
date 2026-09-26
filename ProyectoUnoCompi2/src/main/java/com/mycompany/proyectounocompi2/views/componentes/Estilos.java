@@ -3,12 +3,13 @@ package com.mycompany.proyectounocompi2.views.componentes;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-// Colores, fuentes y piezas visuales compartidas por los paneles.
+// Colores, fuentes y piezas visuales 
 public final class Estilos {
 
     public static final Font FUENTE_CODIGO = new Font(Font.MONOSPACED, Font.PLAIN, 14);
