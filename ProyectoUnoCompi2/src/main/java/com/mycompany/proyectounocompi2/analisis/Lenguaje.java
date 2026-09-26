@@ -15,10 +15,6 @@ public enum Lenguaje {
         this.nombre = nombre;
     }
 
-    public String getExtension() {
-        return extension;
-    }
-
     public String getNombre() {
         return nombre;
     }

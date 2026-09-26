@@ -18,10 +18,6 @@ public class ManejadorErrores {
         this.archivo = archivo;
     }
 
-    public String getArchivo() {
-        return archivo;
-    }
-
     public void agregar(TipoError tipo, int linea, int columna, String lexema, String descripcion) {
         errores.add(new ErrorCompilacion(tipo, archivo, linea, columna, lexema, descripcion));
     }
@@ -50,18 +46,6 @@ public class ManejadorErrores {
         ordenados.sort(Comparator.comparingInt(ErrorCompilacion::linea)
                 .thenComparingInt(ErrorCompilacion::columna));
         return ordenados;
-    }
-
-    public List<ErrorCompilacion> getErrores(TipoError tipo) {
-        return getErrores().stream().filter(e -> e.tipo() == tipo).toList();
-    }
-
-    public boolean hayErrores() {
-        return !errores.isEmpty();
-    }
-
-    public boolean hayErrores(TipoError tipo) {
-        return errores.stream().anyMatch(e -> e.tipo() == tipo);
     }
 
     public String generarReporte() {

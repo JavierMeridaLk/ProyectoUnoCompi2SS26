@@ -9,6 +9,7 @@ import java.nio.file.Path;
 
 import com.mycompany.proyectounocompi2.analisis.Analizador;
 import com.mycompany.proyectounocompi2.analisis.ResultadoAnalisis;
+import com.mycompany.proyectounocompi2.views.FramePrincipal;
 
 /**
  *
@@ -18,8 +19,9 @@ public class ProyectoUnoCompi2 {
 
 
     public static void main(String[] args) throws IOException {
+        // Sin argumentos se abre el IDE; con archivos se analizan por consola
         if (args.length == 0) {
-            System.out.println("Uso: ProyectoUnoCompi2 <archivo.pig|.y|.z> ...");
+            FramePrincipal.main(args);
             return;
         }
         for (String archivo : args) {
