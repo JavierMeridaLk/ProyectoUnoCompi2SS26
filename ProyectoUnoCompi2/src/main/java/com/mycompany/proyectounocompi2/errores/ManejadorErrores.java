@@ -6,9 +6,7 @@ import java.util.List;
 
 import org.antlr.v4.runtime.Token;
 
-/**
- * Acumula los errores lexicos y sintacticos de un archivo.
- */
+// Acumula los errores lexicos, sintacticos y semanticos de un archivo.
 public class ManejadorErrores {
 
     private final String archivo;
@@ -18,11 +16,15 @@ public class ManejadorErrores {
         this.archivo = archivo;
     }
 
+    public String getArchivo() {
+        return archivo;
+    }
+
     public void agregar(TipoError tipo, int linea, int columna, String lexema, String descripcion) {
         errores.add(new ErrorCompilacion(tipo, archivo, linea, columna, lexema, descripcion));
     }
 
-    // Agrega un error ubicado en un token (la columna de ANTLR empieza en 0).
+    // Agrega un error ubicado en un token 
     public void agregar(TipoError tipo, Token token, String descripcion) {
         agregar(tipo, token.getLine(), token.getCharPositionInLine() + 1, recortar(token.getText()), descripcion);
     }
@@ -46,6 +48,10 @@ public class ManejadorErrores {
         ordenados.sort(Comparator.comparingInt(ErrorCompilacion::linea)
                 .thenComparingInt(ErrorCompilacion::columna));
         return ordenados;
+    }
+
+    public boolean hayErrores(TipoError tipo) {
+        return errores.stream().anyMatch(e -> e.tipo() == tipo);
     }
 
     public String generarReporte() {

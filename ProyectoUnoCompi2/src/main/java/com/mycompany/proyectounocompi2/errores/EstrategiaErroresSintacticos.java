@@ -13,9 +13,7 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.Vocabulary;
 import org.antlr.v4.runtime.misc.IntervalSet;
 
-/**
- * Misma recuperacion de errores que ANTLR pero con mensajes en espanol.
- */
+// Misma recuperacion de errores que ANTLR pero con mensajes en espanol.
 public class EstrategiaErroresSintacticos extends DefaultErrorStrategy {
 
     private static final int MAX_ESPERADOS = 8;
@@ -42,6 +40,9 @@ public class EstrategiaErroresSintacticos extends DefaultErrorStrategy {
     @Override
     protected void reportInputMismatch(Parser parser, InputMismatchException e) {
         Token token = e.getOffendingToken();
+        if (reportarPuntoYComaFaltante(parser, token, e.getExpectedTokens())) {
+            return;
+        }
         String mensaje = "Se encontró " + describirToken(token, parser.getVocabulary())
                 + " pero se esperaba " + describirEsperados(e.getExpectedTokens(), parser.getVocabulary());
         parser.notifyErrorListeners(token, mensaje, e);
@@ -59,8 +60,10 @@ public class EstrategiaErroresSintacticos extends DefaultErrorStrategy {
         }
         beginErrorCondition(parser);
         Token token = parser.getCurrentToken();
-        String mensaje = "Sobra " + describirToken(token, parser.getVocabulary())
-                + "; se esperaba " + describirEsperados(getExpectedTokens(parser), parser.getVocabulary());
+        String esperados = describirEsperados(getExpectedTokens(parser), parser.getVocabulary());
+        String mensaje = token.getType() == Token.EOF
+                ? "El archivo terminó antes de tiempo; se esperaba " + esperados
+                : "Sobra " + describirToken(token, parser.getVocabulary()) + "; se esperaba " + esperados;
         parser.notifyErrorListeners(token, mensaje, null);
     }
 
@@ -71,12 +74,27 @@ public class EstrategiaErroresSintacticos extends DefaultErrorStrategy {
         }
         beginErrorCondition(parser);
         Token token = parser.getCurrentToken();
+        if (reportarPuntoYComaFaltante(parser, token, getExpectedTokens(parser))) {
+            return;
+        }
         String mensaje = "Falta " + describirEsperados(getExpectedTokens(parser), parser.getVocabulary())
                 + " antes de " + describirToken(token, parser.getVocabulary());
         parser.notifyErrorListeners(token, mensaje, null);
     }
 
-    /** Nombre legible de un token concreto: 'x', fin de archivo, salto de linea... */
+
+    private boolean reportarPuntoYComaFaltante(Parser parser, Token token, IntervalSet esperados) {
+        Token anterior = parser.getInputStream().LT(-1);
+        boolean esperaPuntoYComa = esperados != null && esperados.toList().stream()
+                .anyMatch(tipo -> "';'".equals(parser.getVocabulary().getLiteralName(tipo)));
+        if (!esperaPuntoYComa || anterior == null || anterior.getLine() >= token.getLine()) {
+            return false;
+        }
+        parser.notifyErrorListeners(anterior, "Falta ';' al final de la instrucción", null);
+        return true;
+    }
+
+    // Nombre legible de un token concreto: 'x', fin de archivo, salto de linea...
     public static String describirToken(Token token, Vocabulary vocabulario) {
         if (token.getType() == Token.EOF) {
             return "fin de archivo";
@@ -89,7 +107,7 @@ public class EstrategiaErroresSintacticos extends DefaultErrorStrategy {
         return "'" + token.getText() + "'";
     }
 
-    /** Lista legible de tipos de token esperados. */
+    // Lista legible de tipos de token esperados.
     public static String describirEsperados(IntervalSet esperados, Vocabulary vocabulario) {
         if (esperados == null || esperados.isNil()) {
             return "otro símbolo";

@@ -12,9 +12,7 @@ import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-/**
- * Operaciones sobre archivos y carpetas del proyecto.
- */
+// Operaciones sobre archivos y carpetas del proyecto.
 public final class GestorArchivos {
 
     private GestorArchivos() {
@@ -31,7 +29,7 @@ public final class GestorArchivos {
         Files.writeString(archivo, contenido, StandardCharsets.UTF_8);
     }
 
-    /** Elimina un archivo o una carpeta con todo su contenido. */
+    // Elimina un archivo o una carpeta con todo su contenido.
     public static void eliminar(Path ruta) throws IOException {
         if (!Files.isDirectory(ruta)) {
             Files.deleteIfExists(ruta);
@@ -49,7 +47,7 @@ public final class GestorArchivos {
         Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
     }
 
-    /** Comprime una carpeta completa en un archivo .zip. */
+    // Comprime una carpeta completa en un archivo .zip.
     public static void comprimir(Path carpeta, Path zip) throws IOException {
         Path base = carpeta.getParent() != null ? carpeta.getParent() : carpeta;
         try (OutputStream salida = Files.newOutputStream(zip);

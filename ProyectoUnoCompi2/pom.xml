@@ -23,10 +23,6 @@
 
     <build>
         <plugins>
-            <!--
-                Los Lexer/Parser se generan a mano junto a los .g4 (src/main/antlr4).
-                Este plugin agrega esa carpeta como codigo fuente para que Maven los compile.
-            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

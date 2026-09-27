@@ -159,6 +159,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitPrograma(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitPrograma(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ProgramaContext programa() throws RecognitionException {
@@ -228,6 +233,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitImportacion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitImportacion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ImportacionContext importacion() throws RecognitionException {
@@ -285,6 +295,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitRutaImportacion(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitRutaImportacion(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -347,6 +362,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSeccionVariables(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSeccionVariables(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -412,6 +432,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSeccionPrincipal(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSeccionPrincipal(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final SeccionPrincipalContext seccionPrincipal() throws RecognitionException {
@@ -476,6 +501,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracionContext declaracion() throws RecognitionException {
@@ -534,6 +564,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracionVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracionVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -595,6 +630,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracionConTipo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracionConTipo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class DeclaracionBooleanaContext extends CuerpoDeclaracionContext {
@@ -608,6 +648,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracionBooleana(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracionBooleana(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -623,6 +668,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracionObjeto(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracionObjeto(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -727,6 +777,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDeclaracionArreglo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDeclaracionArreglo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracionArregloContext declaracionArreglo() throws RecognitionException {
@@ -802,6 +857,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitDimension(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitDimension(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DimensionContext dimension() throws RecognitionException {
@@ -848,6 +908,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitInicializador(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitInicializador(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -924,6 +989,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitListaInicializacion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitListaInicializacion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ListaInicializacionContext listaInicializacion() throws RecognitionException {
@@ -996,6 +1066,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitTipo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitTipo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TipoContext tipo() throws RecognitionException {
@@ -1049,6 +1124,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitBloque(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitBloque(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1139,6 +1219,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitInstruccion(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitInstruccion(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1268,6 +1353,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitAsignacion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitAsignacion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final AsignacionContext asignacion() throws RecognitionException {
@@ -1316,6 +1406,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitIncremento(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitIncremento(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1371,6 +1466,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitLlamada(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitLlamada(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final LlamadaContext llamada() throws RecognitionException {
@@ -1412,6 +1512,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitContinuar(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitContinuar(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ContinuarContext continuar() throws RecognitionException {
@@ -1452,6 +1557,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitInterrumpir(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitInterrumpir(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1511,6 +1621,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitCondicional(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitCondicional(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1598,6 +1713,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSinoSi(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSinoSi(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final SinoSiContext sinoSi() throws RecognitionException {
@@ -1646,6 +1766,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSino(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSino(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1696,6 +1821,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitCicloDum(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitCicloDum(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1756,6 +1886,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitCicloFacere(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitCicloFacere(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1825,6 +1960,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitCicloPer(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitCicloPer(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1910,6 +2050,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitInicioPerDeclaracion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitInicioPerDeclaracion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class InicioPerAsignacionContext extends InicioPerContext {
@@ -1928,6 +2073,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitInicioPerAsignacion(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitInicioPerAsignacion(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2004,6 +2154,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitActualizacionPer(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitActualizacionPer(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ActualizacionPerContext actualizacionPer() throws RecognitionException {
@@ -2074,6 +2229,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitLectura(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitLectura(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final LecturaContext lectura() throws RecognitionException {
@@ -2143,6 +2303,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitEscritura(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitEscritura(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final EscrituraContext escritura() throws RecognitionException {
@@ -2207,6 +2372,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitAcceso(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitAcceso(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2276,6 +2446,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSufijoIndice(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSufijoIndice(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SufijoAtributoContext extends SufijoContext {
@@ -2289,6 +2464,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSufijoAtributo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSufijoAtributo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2306,6 +2486,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitSufijoLlamada(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitSufijoLlamada(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2398,6 +2583,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitArgumentos(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitArgumentos(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ArgumentosContext argumentos() throws RecognitionException {
@@ -2458,6 +2648,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitCreacionObjeto(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitCreacionObjeto(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2531,6 +2726,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionNuevoObjeto(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionNuevoObjeto(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionUnariaContext extends ExpresionContext {
@@ -2549,6 +2749,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionUnaria(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionUnaria(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2571,6 +2776,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionIgualdad(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionIgualdad(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionMultiplicativaContext extends ExpresionContext {
@@ -2592,6 +2802,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionMultiplicativa(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionMultiplicativa(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionYContext extends ExpresionContext {
@@ -2610,6 +2825,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionY(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionY(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2634,6 +2854,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionRelacional(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionRelacional(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionLiteralContext extends ExpresionContext {
@@ -2648,6 +2873,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionLiteral(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionLiteral(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2666,6 +2896,11 @@ public class pigLatinParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionParentesis(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionParentesis(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionAccesoContext extends ExpresionContext {
@@ -2680,6 +2915,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionAcceso(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionAcceso(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2699,6 +2939,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionO(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionO(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2720,6 +2965,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitExpresionAditiva(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitExpresionAditiva(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2988,6 +3238,11 @@ public class pigLatinParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof pigLatinListener ) ((pigLatinListener)listener).exitLiteral(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof pigLatinVisitor ) return ((pigLatinVisitor<? extends T>)visitor).visitLiteral(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

@@ -5,10 +5,7 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
 
-/**
- * Registra los errores del parser
- * {@link EstrategiaErroresSintacticos}.
- */
+// Registra los errores del parser
 public class EscuchaErroresSintacticos extends BaseErrorListener {
 
     private final ManejadorErrores manejador;

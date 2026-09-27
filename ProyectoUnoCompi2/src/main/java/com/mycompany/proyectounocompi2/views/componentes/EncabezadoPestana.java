@@ -10,9 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- * Titulo de una pestaña
- */
+// Titulo de una pestaña
 public class EncabezadoPestana extends JPanel {
 
     public EncabezadoPestana(PestanaEditor pestana, Runnable alCerrar) {

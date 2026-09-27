@@ -2,7 +2,8 @@ package com.mycompany.proyectounocompi2.errores;
 
 public enum TipoError {
     LEXICO("Léxico"),
-    SINTACTICO("Sintáctico");
+    SINTACTICO("Sintáctico"),
+    SEMANTICO("Semántico");
 
     private final String nombre;
 

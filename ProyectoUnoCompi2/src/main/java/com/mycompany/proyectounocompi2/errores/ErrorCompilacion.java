@@ -1,8 +1,6 @@
 package com.mycompany.proyectounocompi2.errores;
 
-/**
- * Un error encontrado durante el analisis de un archivo.
- */
+// Un error encontrado durante el analisis de un archivo.
 public record ErrorCompilacion(
         TipoError tipo,
         String archivo,

@@ -26,17 +26,13 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 import javax.swing.text.TabSet;
 import javax.swing.text.TabStop;
-import javax.swing.undo.CannotRedoException;
-import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.CompoundEdit;
 import javax.swing.undo.UndoManager;
 
-import com.mycompany.proyectounocompi2.analisis.Lenguaje;
+import com.mycompany.proyectounocompi2.analizador.Lenguaje;
 import com.mycompany.proyectounocompi2.views.coloreado.Coloreador;
 
-/**
- * Una pestaña del editor
- */
+// Una pestaña del editor
 public class PestanaEditor extends JPanel {
 
     private static final int ESPACIOS_POR_TAB = 4;
@@ -92,7 +88,6 @@ public class PestanaEditor extends JPanel {
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                
             }
         });
     }
@@ -128,22 +123,16 @@ public class PestanaEditor extends JPanel {
         texto.getActionMap().put("deshacer", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (deshacer.canUndo()) {
-                        deshacer.undo();
-                    }
-                } catch (CannotUndoException ex) {
+                if (deshacer.canUndo()) {
+                    deshacer.undo();
                 }
             }
         });
         texto.getActionMap().put("rehacer", new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if (deshacer.canRedo()) {
-                        deshacer.redo();
-                    }
-                } catch (CannotRedoException ex) {
+                if (deshacer.canRedo()) {
+                    deshacer.redo();
                 }
             }
         });
@@ -165,7 +154,6 @@ public class PestanaEditor extends JPanel {
         alCambiarEstado.forEach(Runnable::run);
     }
 
-    // Se ejecuta cuando cambia el nombre del archivo o si tiene cambios sin guardar.
     public void alCambiarEstado(Runnable accion) {
         alCambiarEstado.add(accion);
     }

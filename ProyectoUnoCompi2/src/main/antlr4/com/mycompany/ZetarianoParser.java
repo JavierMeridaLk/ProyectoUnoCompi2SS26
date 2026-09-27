@@ -153,6 +153,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitCompilacion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitCompilacion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final CompilacionContext compilacion() throws RecognitionException {
@@ -211,6 +216,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaracionClase(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaracionClase(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -300,6 +310,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitModificador(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitModificador(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ModificadorContext modificador() throws RecognitionException {
@@ -354,6 +369,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitMiembro(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitMiembro(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -431,6 +451,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaracionAtributo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaracionAtributo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -519,6 +544,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaracionConstructor(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaracionConstructor(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracionConstructorContext declaracionConstructor() throws RecognitionException {
@@ -605,6 +635,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaracionMetodo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaracionMetodo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracionMetodoContext declaracionMetodo() throws RecognitionException {
@@ -679,6 +714,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitTipoRetorno(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitTipoRetorno(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TipoRetornoContext tipoRetorno() throws RecognitionException {
@@ -746,6 +786,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitParametros(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitParametros(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParametrosContext parametros() throws RecognitionException {
@@ -804,6 +849,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitParametro(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitParametro(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ParametroContext parametro() throws RecognitionException {
@@ -853,6 +903,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitTipo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitTipo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -914,6 +969,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitTipoBase(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitTipoBase(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final TipoBaseContext tipoBase() throws RecognitionException {
@@ -964,6 +1024,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaradorVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaradorVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1020,6 +1085,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitInicializadorVariable(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitInicializadorVariable(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1100,6 +1170,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitInicializadorArreglo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitInicializadorArreglo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1188,6 +1263,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitBloque(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitBloque(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final BloqueContext bloque() throws RecognitionException {
@@ -1255,6 +1335,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaDeclaracion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaDeclaracion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaReturnContext extends SentenciaContext {
@@ -1271,6 +1356,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaReturn(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaReturn(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1297,6 +1387,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaIf(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaIf(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaPrintContext extends SentenciaContext {
@@ -1316,6 +1411,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaPrint(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaPrint(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaExpresionContext extends SentenciaContext {
@@ -1332,6 +1432,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaExpresion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaExpresion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaVaciaContext extends SentenciaContext {
@@ -1344,6 +1449,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaVacia(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaVacia(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1364,6 +1474,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaPrintln(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaPrintln(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaBloqueContext extends SentenciaContext {
@@ -1378,6 +1493,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaBloque(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaBloque(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1410,6 +1530,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaFor(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaFor(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaBreakContext extends SentenciaContext {
@@ -1424,6 +1549,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaBreak(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaBreak(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class SentenciaContinueContext extends SentenciaContext {
@@ -1437,6 +1567,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaContinue(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaContinue(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1458,6 +1593,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaWhile(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaWhile(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1481,6 +1621,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaDoWhile(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaDoWhile(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -1507,6 +1652,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSentenciaSwitch(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSentenciaSwitch(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1818,6 +1968,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitDeclaracionLocal(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitDeclaracionLocal(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final DeclaracionLocalContext declaracionLocal() throws RecognitionException {
@@ -1885,6 +2040,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitSeccionSwitch(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitSeccionSwitch(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -1963,6 +2123,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitEtiquetaSwitch(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitEtiquetaSwitch(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final EtiquetaSwitchContext etiquetaSwitch() throws RecognitionException {
@@ -2027,6 +2192,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitInicioFor(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitInicioFor(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final InicioForContext inicioFor() throws RecognitionException {
@@ -2086,6 +2256,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitListaExpresiones(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitListaExpresiones(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2160,6 +2335,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionMultiplicativa(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionMultiplicativa(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionYContext extends ExpresionContext {
@@ -2179,6 +2359,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionY(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionY(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionPrimariaContext extends ExpresionContext {
@@ -2193,6 +2378,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionPrimaria(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionPrimaria(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2212,6 +2402,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionPostfija(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionPostfija(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionAtributoContext extends ExpresionContext {
@@ -2228,6 +2423,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionAtributo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionAtributo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2248,6 +2448,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionIndice(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionIndice(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2270,6 +2475,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionUnaria(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionUnaria(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionIgualdadContext extends ExpresionContext {
@@ -2290,6 +2500,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionIgualdad(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionIgualdad(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2314,6 +2529,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionRelacional(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionRelacional(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionTernariaContext extends ExpresionContext {
@@ -2333,6 +2553,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionTernaria(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionTernaria(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2355,6 +2580,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionLlamadaMetodo(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionLlamadaMetodo(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2381,6 +2611,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionAsignacion(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionAsignacion(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExpresionOContext extends ExpresionContext {
@@ -2399,6 +2634,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionO(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionO(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2420,6 +2660,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitExpresionAditiva(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitExpresionAditiva(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -2762,6 +3007,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioThis(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioThis(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrimarioReadlnContext extends PrimarioContext {
@@ -2776,6 +3026,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioReadln(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioReadln(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2795,6 +3050,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioNuevoObjeto(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioNuevoObjeto(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2826,6 +3086,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioNuevoArreglo(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioNuevoArreglo(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrimarioLlamadaContext extends PrimarioContext {
@@ -2844,6 +3109,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioLlamada(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioLlamada(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrimarioIdentificadorContext extends PrimarioContext {
@@ -2856,6 +3126,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioIdentificador(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioIdentificador(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2874,6 +3149,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioParentesis(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioParentesis(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 	@SuppressWarnings("CheckReturnValue")
 	public static class PrimarioLiteralContext extends PrimarioContext {
@@ -2888,6 +3168,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioLiteral(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioLiteral(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	@SuppressWarnings("CheckReturnValue")
@@ -2915,6 +3200,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitPrimarioNuevoArregloInicializado(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitPrimarioNuevoArregloInicializado(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -3138,6 +3428,11 @@ public class ZetarianoParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitArgumentos(this);
 		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitArgumentos(this);
+			else return visitor.visitChildren(this);
+		}
 	}
 
 	public final ArgumentosContext argumentos() throws RecognitionException {
@@ -3198,6 +3493,11 @@ public class ZetarianoParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ZetarianoListener ) ((ZetarianoListener)listener).exitLiteral(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ZetarianoVisitor ) return ((ZetarianoVisitor<? extends T>)visitor).visitLiteral(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 

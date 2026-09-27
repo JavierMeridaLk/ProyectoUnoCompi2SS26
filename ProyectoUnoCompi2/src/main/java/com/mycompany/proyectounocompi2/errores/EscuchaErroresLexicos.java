@@ -4,9 +4,7 @@ import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 
-/**
- * Recibe los errores que reporta el propio lexer
- */
+// Recibe los errores que reporta el propio lexer
 public class EscuchaErroresLexicos extends BaseErrorListener {
 
     private final ManejadorErrores manejador;

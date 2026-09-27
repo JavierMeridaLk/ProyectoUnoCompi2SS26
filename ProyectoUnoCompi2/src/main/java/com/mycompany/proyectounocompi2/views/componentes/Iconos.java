@@ -9,11 +9,9 @@ import java.util.Optional;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-import com.mycompany.proyectounocompi2.analisis.Lenguaje;
+import com.mycompany.proyectounocompi2.analizador.Lenguaje;
 
-/**
- * Iconos de cada lenguaje 
- */
+// Iconos de cada lenguaje
 public final class Iconos {
 
     public static final int TAMANO = 18;

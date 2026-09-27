@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.proyectounocompi2.views;
 
 import java.awt.BorderLayout;
@@ -42,10 +38,7 @@ import com.mycompany.proyectounocompi2.views.componentes.Estilos;
 import com.mycompany.proyectounocompi2.views.componentes.Iconos;
 import javax.swing.tree.TreePath;
 
-/**
- *
- * @author xavi
- */
+// @author xavi
 public class ArbolDeProyectoPanel extends javax.swing.JPanel {
 
     // Extensiones que se ofrecen al crear un archivo.
@@ -170,7 +163,7 @@ public class ArbolDeProyectoPanel extends javax.swing.JPanel {
                 }
             }
         } catch (IOException e) {
-            
+            // una carpeta que no se puede leer se muestra vacia
         }
     }
 
@@ -204,7 +197,12 @@ public class ArbolDeProyectoPanel extends javax.swing.JPanel {
         formulario.add(nombre);
         formulario.add(new JLabel("Lenguaje:"));
         formulario.add(extension);
-        nombre.addAncestorListener(new EnfocarAlMostrar());
+        // el cursor queda en el nombre al abrirse el dialogo
+        nombre.addHierarchyListener(e -> {
+            if (nombre.isShowing()) {
+                nombre.requestFocusInWindow();
+            }
+        });
         if (JOptionPane.showConfirmDialog(this, formulario, "Nuevo archivo", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE) != JOptionPane.OK_OPTION) {
             return;
@@ -314,22 +312,6 @@ public class ArbolDeProyectoPanel extends javax.swing.JPanel {
 
     private void error(String mensaje, IOException ex) {
         JOptionPane.showMessageDialog(this, mensaje + ":\n" + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-
-    // Pone el cursor en el campo de texto cuando se abre el dialogo.
-    private static class EnfocarAlMostrar implements javax.swing.event.AncestorListener {
-        @Override
-        public void ancestorAdded(javax.swing.event.AncestorEvent e) {
-            e.getComponent().requestFocusInWindow();
-        }
-
-        @Override
-        public void ancestorRemoved(javax.swing.event.AncestorEvent e) {
-        }
-
-        @Override
-        public void ancestorMoved(javax.swing.event.AncestorEvent e) {
-        }
     }
 
     //Icono de carpeta tambien para carpetas vacias

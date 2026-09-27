@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.proyectounocompi2.views;
 
 import java.awt.BorderLayout;
@@ -20,11 +16,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-/**
- * Tabla de errores lexicos, sintacticos y semanticos.
- *
- * @author xavi
- */
+// Tabla de errores lexicos, sintacticos y semanticos.
+//
+// @author xavi
 public class ErroresPanel extends javax.swing.JPanel {
 
     private static final String[] COLUMNAS = {"Tipo", "Archivo", "Línea", "Columna", "Lexema", "Descripción"};

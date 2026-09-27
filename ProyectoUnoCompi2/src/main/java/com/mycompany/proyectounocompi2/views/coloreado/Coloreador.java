@@ -15,12 +15,10 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.Vocabulary;
 
-import com.mycompany.proyectounocompi2.analisis.Analizador;
-import com.mycompany.proyectounocompi2.analisis.Lenguaje;
+import com.mycompany.proyectounocompi2.analizador.Analizador;
+import com.mycompany.proyectounocompi2.analizador.Lenguaje;
 
-/**
- * Colorea el editor en tiempo real con el lexer de ANTLR del lenguaje del archivo. 
- */
+// Colorea el editor en tiempo real con el lexer de ANTLR del lenguaje del archivo.
 public class Coloreador {
 
     private static final int ESPERA_MS = 150;
@@ -89,7 +87,7 @@ public class Coloreador {
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                // son los cambios de color que hace esta misma clase
+                
             }
         });
     }

@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.mycompany.proyectounocompi2.views;
 
-import com.mycompany.proyectounocompi2.analisis.Lenguaje;
+import com.mycompany.proyectounocompi2.analizador.Lenguaje;
 import com.mycompany.proyectounocompi2.archivos.GestorArchivos;
-import com.mycompany.proyectounocompi2.formato.FormateadorCodigo;
+import com.mycompany.proyectounocompi2.archivos.FormateadorCodigo;
 import com.mycompany.proyectounocompi2.views.componentes.EncabezadoPestana;
 import com.mycompany.proyectounocompi2.views.componentes.Estilos;
 import com.mycompany.proyectounocompi2.views.componentes.PestanaEditor;
@@ -28,11 +24,9 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
-/**
- * Editor de codigo con pestañas
- *
- * @author xavi
- */
+// Editor de codigo con pestañas
+//
+// @author xavi
 public class EditorDeTexctoPanel extends javax.swing.JPanel {
 
     private final JTabbedPane pestanas = new JTabbedPane(JTabbedPane.TOP, JTabbedPane.SCROLL_TAB_LAYOUT);

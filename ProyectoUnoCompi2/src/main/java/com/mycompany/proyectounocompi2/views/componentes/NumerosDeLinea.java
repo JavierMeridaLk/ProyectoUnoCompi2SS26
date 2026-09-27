@@ -21,9 +21,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.Element;
 import javax.swing.text.JTextComponent;
 
-/**
- * Columna con los numeros de linea de un componente de texto. 
- */
+// Columna con los numeros de linea de un componente de texto.
 public class NumerosDeLinea extends JComponent {
 
     private static final int MARGEN = 8;
@@ -122,7 +120,7 @@ public class NumerosDeLinea extends JComponent {
                 int y = (int) (posicion.getY() + posicion.getHeight()) - metricas.getDescent();
                 g2.drawString(numero, x, y);
             } catch (BadLocationException e) {
-            
+                // la linea ya no existe (el texto cambio mientras se dibujaba)
             }
         }
     }
